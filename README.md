@@ -4,7 +4,7 @@
 
 [▶ Play Metro Dash](https://siddhant-pardeshi.github.io/metro-dash/) — free, no install, no login. Phones and desktops.
 
-![Metro Dash mid-run](docs/media/gameplay.png)
+![Metro Dash mid-run](docs/media/gameplay.gif)
 
 ## The pitch
 
@@ -52,6 +52,10 @@ One shared game kit, zero downloaded assets: the viaduct is a projected pseudo-3
 python -m http.server 8000
 # open http://localhost:8000
 ```
+
+## About
+
+**Made by Siddhant Pardeshi.** Part of [The Game Deck](https://siddhant-pardeshi.github.io/game-deck/) — six handcrafted worlds on one shared game kit, each with its own curriculum woven into the mechanics.
 
 ## License
 
