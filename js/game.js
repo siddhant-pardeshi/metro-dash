@@ -42,9 +42,9 @@
   let jumpT = -1, slideT = 0, pendingSlide = false, landT = 0;
   let boostT = 0, invulnT = 0, stumbleT = 0;
   let state = 'attract';
-  let slowmoT = 0, timeScale = 1, crashT = 0, crashSpin = 0;
+  let slowmoT = 0, timeScale = 1, crashT = 0, crashSpin = 0, briefingOpen = false;
   let tickets = 0, closeCalls = 0, score = 0;
-  let missions = [], milestoneAt = 1000, nextSpawnZ = 0, lastPattern = '';
+  let missions = [], milestoneAt = 1000, nextSpawnZ = 0, lastPattern = '', transitPass = 0;
   let particles = Kit.particles();
 
   const W = { w: 0, h: 0 };
@@ -96,7 +96,7 @@
     boostT = 0; invulnT = 0; stumbleT = 0;
     slowmoT = 0; timeScale = 1; crashT = 0; crashSpin = 0;
     tickets = 0; closeCalls = 0; score = 0;
-    milestoneAt = 1000; nextSpawnZ = 1200; lastPattern = '';
+    milestoneAt = 1000; nextSpawnZ = 1200; lastPattern = ''; transitPass = 0;
     missions = makeMissions();
     particles.clear();
     state = 'run';
@@ -303,6 +303,15 @@
 
   function crash() {
     if (state !== 'run') return;
+    if (transitPass > 0) {
+      transitPass = 0;
+      invulnT = 2.5;
+      Audio.sfx('powerup');
+      Kit.buzz(40);
+      Kit.toast('Transit pass used — back on the roof!');
+      Mascot.react('mission');
+      return;
+    }
     state = 'crashing';
     crashT = 0.6; crashSpin = 0;
     Audio.sfx('hit'); Audio.sfx('explode');
@@ -515,6 +524,28 @@
         Kit.toast(Kit.fmt(meters) + ' m');
         Audio.sfx('chime');
         Mascot.react('milestone');
+        /* station stop: a correct concept check earns a transit pass */
+        if (window.Learn && window.LEARN_DATA && !briefingOpen) {
+          const card = Learn.nextCard();
+          if (card) {
+            briefingOpen = true;
+            G.pause();
+            Learn.show(card, { timer: 0, onClose: () => {
+              briefingOpen = false;
+              if (state === 'run') G.resume();
+            } }).then(ok => {
+              if (ok) {
+                transitPass = 1;
+                score += 250;
+                Kit.toast('Transit pass earned — it will save you once');
+                Audio.sfx('powerup');
+              } else {
+                Kit.toast('Missed check — no pass. Watch the gantries.');
+                Audio.sfx('fail');
+              }
+            });
+          }
+        }
       }
     }
 

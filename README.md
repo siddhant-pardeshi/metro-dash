@@ -14,7 +14,7 @@ Each run deals three **missions** — collect a stack of tickets, bank a handful
 
 ## Learn the city while you run
 
-The rooftops are covered in signs — real ones and bait. Tickets sometimes glow from **verified billboards**; suspicious ones are decoys. And when a run ends, the **rooftop debrief** walks you through one scam pattern or HTTP status code from the night: the right call is worth +150. Every concept you master is tracked in the menu's **Concepts** codex.
+The rooftops are covered in signs — real ones and bait. Tickets sometimes glow from **verified billboards**; suspicious ones are decoys. At every 1000 m the run pulls over for a **station check** — one scam-pattern or status-code concept. The right call earns a **transit pass**: the next crash is forgiven and you're straight back on the roof. And when a run does end, the **rooftop debrief** walks you through one more concept: the right call is worth +150. Every concept you master is tracked in the menu's **Concepts** codex.
 
 ## Controls
 
