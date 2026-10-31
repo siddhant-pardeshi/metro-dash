@@ -1,0 +1,44 @@
+/* Metro Dash theme — dusk rooftop rush: amber sodium light, sky-blue signal glow */
+:root {
+  --acc: #FFB84D;
+  --acc2: #6BD0FF;
+  --ink: #F5F1E8;
+  --dim: #9DA2C4;
+  --bg: #131120;
+  --panel: rgba(19, 17, 32, .86);
+  --font: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+}
+
+/* the menu title gets a two-tone transit look */
+h1.title { color: #fff; }
+h1.title em {
+  background: linear-gradient(120deg, #FFB84D, #FFD9A0 45%, #6BD0FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* HUD readouts */
+#hud .dist-chip b { color: #FFB84D; }
+#hud .tix-chip b { color: #FFD9A0; }
+#hud .speed-chip b { font-size: 20px; color: #6BD0FF; letter-spacing: .02em; }
+
+/* run mission chips, top-center under the main readouts */
+.hud-missions { display: flex; gap: 8px; justify-content: center; margin-top: 8px; }
+.mchip {
+  background: var(--panel); border: 1px solid rgba(255,255,255,.12);
+  border-radius: 9px; padding: 5px 10px; text-align: center; min-width: 62px;
+}
+.mchip small { display: block; font: 700 8.5px/1.2 var(--font); letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+.mchip b { font: 800 12px/1.2 var(--font); color: var(--ink); }
+.mchip.done { border-color: color-mix(in srgb, var(--acc) 65%, transparent); box-shadow: 0 0 14px color-mix(in srgb, var(--acc) 28%, transparent); }
+.mchip.done b { color: var(--acc); }
+
+/* logo on the top bar */
+.topbar .brand { color: #FFB84D; }
+
+/* menu floats over the live attract-mode scene */
+[data-screen="menu"], [data-screen="pause"], [data-screen="results"] {
+  background: linear-gradient(180deg, rgba(19,17,32,.84), rgba(35,22,52,.7));
+  backdrop-filter: blur(3px);
+}
