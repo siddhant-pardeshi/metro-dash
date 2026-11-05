@@ -38,6 +38,10 @@ The character in the corner is Ziggy — a regular on the roof deck. They greet 
 
 Volume sliders and mute (`M`), quality tiers, reduced motion, camera-shake toggle, hideable mascot, fullscreen, keyboard-playable menus, touch targets ≥ 44px. Fully playable muted — every sound has a visual counterpart.
 
+## Privacy
+
+No accounts, no cookies, no analytics, no tracking — nothing leaves your device. Progress and settings live in your browser's localStorage and can be wiped anytime from Settings. Full details: [SECURITY.md](SECURITY.md) and the deck-wide [privacy statement](https://github.com/siddhant-pardeshi/game-deck/blob/main/PRIVACY.md).
+
 ## Under the hood
 
 One shared game kit, zero downloaded assets: the viaduct is a projected pseudo-3D track, the runner is drawn vector geometry, and the whole soundtrack — menu pads, the 126 BPM run groove, wind — is synthesized live with WebAudio. Progress and personal bests live in localStorage on your device.
